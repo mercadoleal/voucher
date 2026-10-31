@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#171717">
+<meta property="og:title" content="Ofertas Leais | Mercado Leal">
+<meta property="og:description" content="Toque e garanta o seu voucher de desconto.">
+<meta property="og:type" content="website">
+<title>Ofertas Leais | Mercado Leal</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171717;--card:#202020;--ac:#fff;--tx:#fff;--mut:#9d9d92;--ln:#303030;--ok:#7cc480;--bad:#e07a6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 18px/1.5 Montserrat,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:560px;margin:0 auto;padding:20px}
+.brand{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 22px;font-size:18px;letter-spacing:.28em;font-weight:500}
+.brand .lg{width:64px;height:64px;margin-bottom:8px}
+.brand b{font-weight:800}
+.wrap{position:relative;z-index:1}
+#wave{position:fixed;top:0;right:2vw;width:clamp(120px,20vw,260px);height:100%;pointer-events:none;z-index:0}
+#intro{position:fixed;inset:0;background:#171717;z-index:9;display:flex;align-items:center;justify-content:center;animation:out .6s ease 1.4s forwards}
+#intro .brand{padding:0;font-size:26px;animation:in .8s ease both}
+#intro .lg{width:110px;height:110px}
+@keyframes out{to{opacity:0;visibility:hidden}}
+@keyframes in{from{opacity:0;transform:scale(.94)}}
+@media(max-width:700px){#wave{width:90px;right:-20px;opacity:.55}}
+@media(prefers-reduced-motion:reduce){#intro{display:none}#intro .brand{animation:none}}
+h1{font-size:28px;line-height:1.2;margin:0 0 10px;font-weight:800}
+h2{font-size:22px;margin:0 0 10px;font-weight:800}
+h3{font-size:18px;margin:0 0 6px;font-weight:800}
+p{margin:0 0 12px}
+.mut{color:var(--mut);font-size:15px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:22px;margin-bottom:16px}
+.card.ok{border-color:var(--ac)}
+.card.bad{border-color:var(--bad)}
+input,textarea{width:100%;padding:16px;margin:0 0 12px;border-radius:12px;border:1px solid #444;background:#151515;color:var(--tx);font:inherit}
+input[type=checkbox]{width:auto;margin:0 4px 0 0}
+input.big{font-size:34px;text-align:center;letter-spacing:.3em;text-transform:uppercase;font-weight:800}
+.btn,button{font:inherit;cursor:pointer}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;padding:18px;border:0;border-radius:14px;background:var(--ac);color:#171717;font-weight:800;font-size:20px}
+.btn.ghost{background:none;border:2px solid var(--ac);color:var(--ac)}
+.btn:disabled{opacity:.6}
+.code{font-size:64px;font-weight:800;letter-spacing:.18em;color:var(--ac);text-align:center;margin:6px 0}
+.state{font-size:34px;font-weight:800;text-align:center;margin:0 0 8px}
+.ok .state{color:var(--ok)}.bad .state{color:var(--bad)}
+.err{color:var(--bad);font-size:16px;min-height:1.4em;margin:0 0 8px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+nav{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+nav a,nav button,.acts button,#csv{padding:10px 14px;border-radius:10px;border:1px solid #444;background:none;color:var(--tx);text-decoration:none;font-size:15px}
+nav a.on{border-color:var(--ac);color:var(--ac)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.vr{padding:10px 0;border-top:1px solid var(--ln);font-size:15px}
+.tag{padding:2px 8px;border-radius:8px;border:1px solid var(--mut);font-size:13px}
+.tag.usado{border-color:var(--ok);color:var(--ok)}
+#pv{display:none}
+@media print{body{background:#fff!important;padding:0}.wrap,#wave,#intro{display:none!important}#pv{display:block;color:#000;font:12pt/1.4 Montserrat,Arial,sans-serif}#pv h1{font-size:18pt;margin:0 0 6px}#pv table{width:100%;border-collapse:collapse;margin-top:10px}#pv th,#pv td{border:1px solid #000;padding:8px;text-align:left}#pv .cd{font-weight:800;font-size:15pt;letter-spacing:.1em}#pv .bx{text-align:center;font-size:18pt;width:70px}#pv tr{page-break-inside:avoid}}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="cart" viewBox="0 0 100 100"><circle cx="50" cy="50" r="49" fill="none" stroke="#fff" stroke-width="1.4"/><path d="M19 26.5H29.5L35 62" fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 33.5H77.5L72 61.8H35z" fill="#fff"/><path d="M35 62V66.5Q35 70 39 70H70" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="43.5" cy="81.5" r="4.2" fill="#fff"/><circle cx="63" cy="81.5" r="4.2" fill="#fff"/></symbol></svg>
+<svg id="wave" viewBox="0 0 330 1000" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path d="M150 -20C100 150 90 200 110 330S190 600 215 780S190 950 185 1020" fill="none" stroke="#5a5b4f" stroke-width="175"/></svg>
+<div id="intro"><div class="brand"><svg class="lg"><use href="#cart"/></svg><span>MERCADO</span><b>LEAL</b></div></div>
+<div class="wrap">
+<header class="brand"><svg class="lg"><use href="#cart"/></svg><span>MERCADO</span><b>LEAL</b></header>
+<main id="app"></main>
+</div>
+<div id="pv"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+// ===== CONFIGURE AQUI =====
+const CFG={apiKey:"AIzaSyASJtBLP_0SuFpJFHZCYLnBZ_wFMKw0Zto",authDomain:"voucher-840b0.firebaseapp.com",projectId:"voucher-840b0",storageBucket:"voucher-840b0.firebasestorage.app",messagingSenderId:"406730823804",appId:"1:406730823804:web:f3efb5ec7277effaac11f9"};
+const IG="_mercadoleal"; // Instagram do mercado, sem @
+const SEGUIR_OBRIGATORIO=true; // true = todo voucher só vale para quem segue o Instagram
+const ZAP=""; // opcional: WhatsApp do mercado, só números com DDI (ex.: 5527999999999), para receber os prints
+// ==========================
+/* REGRAS DO FIRESTORE (Firestore > Regras > cole isto e publique)
+   Troque o e-mail pelo da equipe (você e o caixa).
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function staff() {
+      return request.auth != null
+        && request.auth.token.email in ['COLOQUE_O_EMAIL_DA_EQUIPE@gmail.com'];
+    }
+    match /campaigns/{id} {
+      allow read: if true;
+      allow create, delete: if staff();
+      allow update: if staff() || (
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimed'])
+        && request.resource.data.claimed == resource.data.claimed + 1
+        && request.resource.data.claimed <= resource.data.qty
+      );
+      match /phones/{phone} {
+        allow get: if true;
+        allow create: if true;
+        allow update: if staff();
+      }
+    }
+    match /vouchers/{code} {
+      allow read, update, delete: if staff();
+      allow create: if request.resource.data.status == 'ativo'
+        && getAfter(/databases/$(database)/documents/campaigns/$(request.resource.data.campaign)).data.claimed
+           == get(/databases/$(database)/documents/campaigns/$(request.resource.data.campaign)).data.claimed + 1;
+    }
+  }
+}
+*/
+firebase.initializeApp(CFG);
+setTimeout(()=>{const i=document.getElementById('intro');i&&i.remove()},2200);
+const db=firebase.firestore(),auth=firebase.auth(),TS=()=>firebase.firestore.FieldValue.serverTimestamp();
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=d=>d?d.split('-').reverse().join('/'):'';
+const today=()=>new Date().toLocaleDateString('sv-SE');
+const gen=()=>{const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<4;i++)s+=a[Math.floor(Math.random()*a.length)];return s};
+const copy=async(t,b)=>{await navigator.clipboard.writeText(t);const o=b.textContent;b.textContent='Copiado ✔';setTimeout(()=>b.textContent=o,1500)};
+let unsub=null,C=[],mi=0;
+
+function route(){
+  if(unsub){unsub();unsub=null}
+  const q=new URLSearchParams(location.search),h=location.hash;
+  if(h==='#admin')return staff(admin);
+  if(h==='#caixa')return staff(caixa);
+  if(q.get('c'))return oferta(q.get('c'));
+  app.innerHTML='<div class="card"><h1>Ofertas Leais</h1><p>Abra o link da oferta que enviamos no grupo.</p></div>';
+}
+addEventListener('hashchange',route);
+auth.onAuthStateChanged(()=>{if(/^#(admin|caixa)$/.test(location.hash))route()});
+route();
+
+/* ---------- PÚBLICO: Eu quero ---------- */
+function oferta(id){
+  let shown=false;
+  app.innerHTML='<div class="card" id="box"><p class="mut">Carregando…</p></div>';
+  unsub=db.doc('campaigns/'+id).onSnapshot(s=>{
+    if(shown)return;
+    if(!s.exists){app.innerHTML='<div class="card"><h2>Oferta não encontrada</h2><p>Confira o link no grupo Ofertas Leais.</p></div>';return}
+    const d=s.data(),left=d.qty-d.claimed;
+    if(!d.active||left<=0||d.validUntil<today()){
+      app.innerHTML='<div class="card bad"><h2>'+(left<=0?'Vouchers esgotados':'Oferta encerrada')+'</h2><p>Fique de olho na próxima oferta no grupo Ofertas Leais.</p></div>';return}
+    if($('#f')){$('#left').textContent=left;return}
+    app.innerHTML=`<form class="card" id="f"><h1>${esc(d.title)}</h1><p>Restam <b id="left">${left}</b> de ${d.qty} vouchers. Válido até ${fmt(d.validUntil)}.${SEGUIR_OBRIGATORIO?` Só vale para quem segue <b>@${IG}</b>.`:''}</p>
+    <input id="nm" placeholder="Seu nome" autocomplete="name" required><input id="ph" type="tel" inputmode="tel" placeholder="Seu WhatsApp com DDD" autocomplete="tel" required>
+    <p class="err" id="er"></p><button class="btn" id="go">EU QUERO</button></form>`;
+    $('#f').onsubmit=async e=>{
+      e.preventDefault();
+      const name=$('#nm').value.trim();let ph=$('#ph').value.replace(/\D/g,'');
+      if(ph.length>11&&ph.startsWith('55'))ph=ph.slice(2);
+      if(name.length<2||ph.length<10||ph.length>11){$('#er').textContent='Confira seu nome e o número com DDD.';return}
+      $('#go').disabled=true;$('#go').textContent='Garantindo…';
+      try{const r=await claim(id,name,ph);shown=true;voucher(r.d,r.code,name,ph,r.dup,r.status)}
+      catch(x){$('#go').disabled=false;$('#go').textContent='EU QUERO';
+        $('#er').textContent=(x==='sold'||x==='closed')?'Os vouchers acabaram. Fique de olho na próxima!':'Não deu certo. Toque de novo.'}
+    };
+  });
+}
+async function claim(id,name,phone){
+  for(let i=0;i<5;i++){
+    const code=gen();
+    try{
+      return await db.runTransaction(async t=>{
+        const cr=db.doc('campaigns/'+id),pr=db.doc(`campaigns/${id}/phones/${phone}`);
+        const [c,p]=await Promise.all([t.get(cr),t.get(pr)]);
+        if(!c.exists||!c.data().active)throw'closed';
+        const d=c.data();
+        if(p.exists)return{d,code:p.data().code,dup:true,status:p.data().status||'ativo'};
+        if(d.claimed>=d.qty)throw'sold';
+        t.update(cr,{claimed:d.claimed+1});
+        t.set(pr,{code});
+        t.set(db.doc('vouchers/'+code),{code,campaign:id,name,phone,offer:d.title,validUntil:d.validUntil,status:'ativo',follow:SEGUIR_OBRIGATORIO,story:false,createdAt:TS()});
+        return{d,code,dup:false};
+      });
+    }catch(e){if(e&&e.code==='permission-denied'&&i<4)continue;throw e}
+  }
+}
+function voucher(d,code,name,phone,dup,status){
+  const first=esc(name.split(' ')[0]),used=status==='usado',fw=SEGUIR_OBRIGATORIO;
+  const story=`Quer concorrer a mais vouchers? Poste um story do seu dia no Mercado Leal, marque @${IG} e mande o print para o WhatsApp do Mercado Leal.`;
+  const msg=`Meu voucher Leal: ${code}\n${d.title}\nVálido até ${fmt(d.validUntil)}\n${fw?`Válido só para quem segue @${IG}. `:''}Mostrar este código no caixa.\n\n${story}`;
+  const ig=`https://instagram.com/${IG}`;
+  const show=()=>{
+    const lead=dup?(used?'Este voucher já foi usado no caixa.':'Você já pegou o seu voucher e ele <b>ainda não foi usado</b>. Este é o seu código:'):'Voucher garantido, '+first+'!';
+    app.innerHTML=`<div class="card ${used?'bad':'ok'}"><p>${lead}</p>
+    <div class="code">${code}</div><h2>${esc(d.title)}</h2><p>Válido até ${fmt(d.validUntil)}</p>
+    ${used?'':`<p>Mostre este código no caixa.${fw?` Válido somente para quem segue <b>@${IG}</b>.`:''}</p>
+    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/55${phone}?text=${encodeURIComponent(msg)}">Guardar no meu WhatsApp</a>`}</div>
+    <div class="card"><h3>Quer concorrer a mais vouchers?</h3><p>Poste um story do seu dia no Mercado Leal e marque <b>@${IG}</b>. Pode ser a foto do carrinho ou do seu desconto. Depois, mande o print para a gente.</p>
+    ${ZAP?`<a class="btn" style="margin-bottom:12px" target="_blank" rel="noopener" href="https://wa.me/${ZAP}">Enviar o print ao mercado</a>`:''}
+    <a class="btn ghost" target="_blank" rel="noopener" href="${ig}">Ver @${IG}</a></div>`;
+  };
+  if(!fw||dup){show();return}
+  app.innerHTML=`<div class="card"><h2>Falta só um passo, ${first}!</h2><p>Seu voucher já está reservado. Siga <b>@${IG}</b> no Instagram para ver o seu código.</p>
+  <a class="btn" id="fl" target="_blank" rel="noopener" href="${ig}">Seguir @${IG}</a>
+  <p class="mut" style="margin:14px 0 10px">Depois de seguir, volte aqui e toque no botão abaixo.</p>
+  <button class="btn ghost" id="sh" disabled>Já segui, mostrar meu código</button></div>`;
+  $('#fl').onclick=()=>setTimeout(()=>{$('#sh').disabled=false},4000);
+  $('#sh').onclick=show;
+}
+
+/* ---------- EQUIPE ---------- */
+function staff(fn){auth.currentUser?fn():login()}
+function login(){
+  app.innerHTML='<form class="card" id="lf"><h2>Acesso da equipe</h2><input id="em" type="email" placeholder="E-mail" autocomplete="username" required><input id="pw" type="password" placeholder="Senha" autocomplete="current-password" required><p class="err" id="er"></p><button class="btn">Entrar</button></form>';
+  $('#lf').onsubmit=async e=>{e.preventDefault();try{await auth.signInWithEmailAndPassword($('#em').value,$('#pw').value)}catch{$('#er').textContent='E-mail ou senha incorretos.'}};
+}
+const nav=cur=>`<nav><a href="#admin" class="${cur==='a'?'on':''}">Ofertas</a><a href="#caixa" class="${cur==='c'?'on':''}">Caixa</a><button id="out">Sair</button></nav>`;
+const bindNav=()=>{$('#out').onclick=()=>auth.signOut()};
+
+/* ---------- PAINEL ---------- */
+const MSGS=[
+ (t,q,v,l,f)=>`🔥 *OFERTA LEAL!*\n\n🛒 *${t}*\n🎟️ Apenas *${q} vouchers*. Quem for mais rápido, leva!\n⏰ Válido até ${v}${f?`\n📲 Só para quem segue @${IG}`:''}\n\n👇 *TOQUE NO LINK E GARANTA O SEU* 👇\n${l}`,
+ (t,q,v,l,f)=>`💚 *Chegou a Oferta Leal!*\n\n${t}\n📅 Use até ${v}${f?`\n📲 Só para quem segue @${IG}`:''}\nSão só *${q} vouchers* e acabam rápido! 🏃\n\n👉 *Garanta o seu aqui:*\n${l}`,
+ (t,q,v,l,f)=>`🛒 *HOJE NO MERCADO LEAL*\n\n*${t}*\n🎟️ ${q} vouchers liberados agora\n⏳ Válido até ${v}${f?`\n📲 Só para quem segue @${IG}`:''}\n\n✅ *É rápido: toque, coloque seu nome e WhatsApp e pronto!*\n${l}`
+];
+function admin(){
+  app.innerHTML=nav('a')+`<button class="btn ghost" id="pl" style="margin-bottom:16px">Imprimir lista do caixa (PDF)</button><form class="card" id="nf"><h2>Nova oferta</h2><input id="t" placeholder="Ex.: 10% de desconto no arroz" required>
+  <div class="row"><input id="q" type="number" min="1" value="10" required aria-label="Quantidade de vouchers"><input id="v" type="date" required aria-label="Válido até"></div>
+  <p class="err" id="ne"></p><button class="btn">Criar oferta</button></form><div id="ls"></div><div id="vs"></div>`;
+  bindNav();
+  $('#pl').onclick=async()=>{const s=await db.collection('vouchers').where('status','==','ativo').get();const v=s.docs.map(d=>d.data()).filter(x=>x.validUntil>=today());if(!v.length){alert('Nenhum voucher ativo no momento.');return}printList(v,'Vouchers ativos de todas as ofertas')};
+  $('#nf').onsubmit=async e=>{e.preventDefault();
+    $('#ne').textContent='';
+    try{await db.collection('campaigns').doc(gen()+gen().slice(0,2)).set({title:$('#t').value.trim(),qty:+$('#q').value,validUntil:$('#v').value,claimed:0,active:true,createdAt:TS()});
+      e.target.reset();$('#q').value=10}
+    catch(x){$('#ne').textContent=x.code==='permission-denied'?'Sem permissão. O e-mail do login precisa ser igual ao e-mail colocado nas regras do Firestore.':'Não foi possível criar a oferta. Tente de novo.'}};
+  unsub=db.collection('campaigns').orderBy('createdAt','desc').limit(30).onSnapshot(s=>{
+    C=[];s.forEach(x=>C.push({id:x.id,...x.data()}));
+    $('#ls').innerHTML=C.map(c=>`<div class="card"><h3>${esc(c.title)}</h3><p class="mut">${c.claimed}/${c.qty} resgatados · até ${fmt(c.validUntil)}${c.active?'':' · encerrada'}</p>
+    <div class="acts" data-id="${c.id}"><button data-a="msg">Copiar mensagem</button><button data-a="wa">Abrir no WhatsApp</button><button data-a="lk">Copiar link</button><button data-a="tg">${c.active?'Encerrar':'Reabrir'}</button><button data-a="vs">Ver quem pegou</button></div></div>`).join('')||'<p class="mut">Nenhuma oferta ainda.</p>';
+  },()=>{$('#ls').innerHTML='<p class="err">Sem permissão para ler as ofertas. Confira as regras e o e-mail do login.</p>'});
+  $('#ls').onclick=async e=>{
+    const b=e.target.closest('button[data-a]');if(!b)return;
+    const id=b.parentNode.dataset.id,c=C.find(x=>x.id===id),a=b.dataset.a,l=location.origin+location.pathname+'?c='+id;
+    const m=()=>MSGS[mi++%3](c.title,c.qty,fmt(c.validUntil),l,SEGUIR_OBRIGATORIO);
+    if(a==='lk')copy(l,b);
+    else if(a==='msg')copy(m(),b);
+    else if(a==='wa')open('https://wa.me/?text='+encodeURIComponent(m()),'_blank');
+    else if(a==='tg')db.doc('campaigns/'+id).update({active:!c.active});
+    else if(a==='vs')vlist(c);
+  };
+}
+async function vlist(c){
+  const s=await db.collection('vouchers').where('campaign','==',c.id).get();
+  const v=s.docs.map(d=>d.data()).sort((a,b)=>(a.createdAt?.seconds||0)-(b.createdAt?.seconds||0));
+  $('#vs').innerHTML=`<div class="card"><h3>Quem pegou: ${esc(c.title)}</h3>`+(v.map(x=>`<div class="vr"><b>${x.code}</b> ${esc(x.name)} <span class="mut">${esc(x.phone)}</span> <span class="tag ${x.status}">${x.status}</span> <label><input type="checkbox" data-c="${x.code}" ${x.story?'checked':''}> postou story</label></div>`).join('')||'<p class="mut">Ninguém pegou ainda.</p>')+'<button id="csv">Imprimir lista (PDF)</button></div>';
+  $('#vs').onchange=e=>{const k=e.target.dataset.c;if(k)db.doc('vouchers/'+k).update({story:e.target.checked})};
+  $('#csv').onclick=()=>printList(v,'Oferta: '+c.title);
+  $('#vs').scrollIntoView({behavior:'smooth'});
+}
+
+function printList(v,titulo){
+  const rows=[...v].sort((a,b)=>a.code.localeCompare(b.code));
+  $('#pv').innerHTML=`<h1>Mercado Leal · Lista de vouchers</h1><p>${esc(titulo)} · impressa em ${new Date().toLocaleString('pt-BR')}</p><p>Marque ☑ em <b>Usado</b> e registre no sistema no fim do dia (Caixa, Baixa em lote). Confira se a pessoa segue @${IG}.</p>
+  <table><thead><tr><th>Código</th><th>Nome</th><th>WhatsApp</th><th>Oferta</th><th>Validade</th><th>Usado</th></tr></thead><tbody>`+rows.map(x=>`<tr><td class="cd">${x.code}</td><td>${esc(x.name)}</td><td>••••${esc(String(x.phone).slice(-4))}</td><td>${esc(x.offer)}</td><td>${fmt(x.validUntil)}</td><td class="bx">${x.status==='usado'?'☑':'☐'}</td></tr>`).join('')+'</tbody></table>';
+  window.print();
+}
+
+/* ---------- CAIXA ---------- */
+function caixa(){
+  app.innerHTML=nav('c')+'<form class="card" id="cf"><h2>Validar voucher</h2><input id="cd" class="big" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="----" required><button class="btn">Conferir</button></form><div id="rs"></div><form class="card" id="bf"><h2>Baixa em lote</h2><p class="mut">No fim do dia, digite ou cole os códigos marcados na folha impressa. Pode separar por espaço, vírgula ou linha.</p><textarea id="bl" rows="4" placeholder="K7F2 A9XQ"></textarea><button class="btn">Dar baixa em todos</button></form><div id="br"></div>';
+  bindNav();$('#cd').focus();
+  $('#bf').onsubmit=async e=>{
+    e.preventDefault();
+    const codes=[...new Set($('#bl').value.toUpperCase().split(/[^A-Z0-9]+/).filter(x=>x.length===4))],r=$('#br');
+    if(!codes.length){r.innerHTML='<div class="card bad"><p>Nenhum código válido encontrado. Cada código tem 4 caracteres.</p></div>';return}
+    r.innerHTML='<div class="card"><p>Registrando…</p></div>';
+    let ok=0,usado=0,falta=[];
+    for(const c of codes){
+      const s=await db.doc('vouchers/'+c).get();
+      if(!s.exists){falta.push(c);continue}
+      const v=s.data();
+      if(v.status==='usado'){usado++;continue}
+      const b=db.batch();b.update(s.ref,{status:'usado',usedAt:TS()});b.update(db.doc(`campaigns/${v.campaign}/phones/${v.phone}`),{status:'usado'});await b.commit();ok++;
+    }
+    r.innerHTML=`<div class="card ok"><p class="state">${ok} BAIXA(S) FEITA(S)</p><p>${usado?usado+' já estavam usados. ':''}${falta.length?'Não encontrados: '+falta.join(', '):''}</p></div>`;
+    $('#bl').value='';
+  };
+  $('#cf').onsubmit=async e=>{
+    e.preventDefault();
+    const code=$('#cd').value.trim().toUpperCase(),s=await db.doc('vouchers/'+code).get(),r=$('#rs');
+    if(!s.exists){r.innerHTML='<div class="card bad"><p class="state">NÃO ENCONTRADO</p><p>Confira o código e digite de novo.</p></div>';return}
+    const v=s.data(),used=v.status==='usado',exp=v.validUntil<today();
+    if(used||exp){
+      r.innerHTML=`<div class="card bad"><p class="state">${used?'JÁ USADO':'VENCIDO'}</p><h3>${esc(v.name)} · ${esc(v.offer)}</h3><p class="mut">${used&&v.usedAt?'Usado em '+v.usedAt.toDate().toLocaleString('pt-BR'):'Venceu em '+fmt(v.validUntil)}</p></div>`;return}
+    r.innerHTML=`<div class="card ok"><p class="state">VÁLIDO</p><h2>${esc(v.name)}</h2><p>${esc(v.offer)}</p><p class="mut">Chame pelo nome e confira o código.</p>${SEGUIR_OBRIGATORIO?`<p><b>Confira no celular da pessoa se ela segue @${IG}.</b></p>`:''}<button class="btn" id="bx">Dar baixa</button></div>`;
+    $('#bx').onclick=async()=>{
+      const b=db.batch();b.update(db.doc('vouchers/'+code),{status:'usado',usedAt:TS()});b.update(db.doc(`campaigns/${v.campaign}/phones/${v.phone}`),{status:'usado'});await b.commit();
+      r.innerHTML='<div class="card ok"><p class="state">BAIXA FEITA ✔</p></div>';$('#cd').value='';$('#cd').focus();
+    };
+  };
+}
+</script>
+</body>
+</html>
